@@ -19,7 +19,7 @@ filtrereDatasaetEnkeltVariabel <- function(datasaet, # Datasættet som skal filt
                                            tilladNAIVariablen = FALSE){
 
   # Tjekker om variablene er angivet korrekt
-  if(class(datasaet) != "data.frame" | class(variablen) != "character" | length(variablen) != 1){
+  if(!("data.frame" %in% class(datasaet)) | class(variablen) != "character" | length(variablen) != 1){
 
     stop("Mindst et af inputs til filtrereDatasaet funktionen er ikke angivet korrekt.
          'datasaet' skal være en data.frame
@@ -93,7 +93,7 @@ filtrereDatasaetPeriode <- function(datasaet, # Datasættet som skal filtreres (
                                     tilladNAIVariablen = FALSE){
 
   # Tjekker om variablene er angivet korrekt
-  if(class(datasaet) != "data.frame" | class(variablen) != "character" | length(variablen) != 1 | !(class(fra)[1] == "POSIXct" | is.na(fra)) | !(class(til)[1] == "POSIXct" | is.na(til))){
+  if(!("data.frame" %in% class(datasaet)) | class(variablen) != "character" | length(variablen) != 1 | !(class(fra)[1] == "POSIXct" | is.na(fra)) | !(class(til)[1] == "POSIXct" | is.na(til))){
 
     stop("Mindst et af inputs til filtrereDatasaet funktionen er ikke angivet korrekt.
          'datasaet' skal være en data.frame
